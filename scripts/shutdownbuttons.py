@@ -27,7 +27,7 @@ def reboot():
 	os.system("sudo reboot")
 	
 def shutdown():
-	GPIO.cleanup()
+	#GPIO.cleanup()
 	os.system("sudo poweroff") #//Use "sudo shutdown now" if this does not work
 
 # the script # Maybe it we need to use it in a while loop
