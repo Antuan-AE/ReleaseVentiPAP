@@ -14,6 +14,7 @@ import time
 # Define GPIO ****************************************************************
 reset_pin = 3  #I do not know what pin Tony is Using for reset
 power_off_pin = 4 #I do not know what pin Tony is Using for shutdown
+power_on_enable = 5 #GPIO 5 is to be set high before shutdown
 # End Define GPIO ************************************************************
 
 
@@ -30,6 +31,10 @@ def shutdown():
 	os.system("sudo poweroff") #//Use "sudo shutdown now" if this does not work
 
 # the script # Maybe it we need to use it in a while loop
+
+GPIO.setup(power_on_enable, GPIO.OUT)
+GPIO.output(power_on_enable, GPIO.HIGH)
+
 pwroff  = Button(power_off_pin, hold_time=holdTime)
 # rst = Button(reset_pin, hold_time=holdTime)
 pwroff.when_held = shutdown
