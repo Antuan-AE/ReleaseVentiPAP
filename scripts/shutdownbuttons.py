@@ -35,7 +35,9 @@ def shutdown():
 # the script # Maybe it we need to use it in a while loop
 
 GPIO.setup(power_on_enable, GPIO.OUT)
+GPIO.setup(display_bl, GPIO.OUT)
 GPIO.output(power_on_enable, GPIO.HIGH)
+GPIO.output(display_bl, GPIO.LOW)
 
 pwroff  = Button(power_off_pin, hold_time=holdTime)
 # rst = Button(reset_pin, hold_time=holdTime)
