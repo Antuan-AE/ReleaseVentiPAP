@@ -4,7 +4,7 @@ Created on jul 7, 2017
 @author: chamizo
 '''
 import os,sys
-import commands
+import subprocess
  
 try:
     import time
@@ -40,7 +40,7 @@ GPIO.output(POWER_BUTTOM_ENABLED, GPIO.HIGH)
 
 
 comando = "ps -ef | grep VentiApp"
-estado = str(commands.getoutput(comando)).split('\n')
+estado = str(subprocess.getoutput(comando)).split('\n')
 est = 0
 for i in range(0,len(estado)):
         if not "grep" in estado[i]:
@@ -48,5 +48,5 @@ for i in range(0,len(estado)):
 #print est
 if est == 0:
         comando1 = "sudo nice -n-20 ./VentiApp"
-        commands.getoutput(comando1)
+        subprocess.getoutput(comando1)
 #        os.system("sudo python /home/pi/VentiApp/scripts/shutdownbuttons.py &")
